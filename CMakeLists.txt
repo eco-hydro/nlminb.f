@@ -4,6 +4,8 @@ project(nlminb VERSION 0.1.0)
 # set(CMAKE_C_COMPILER "gcc")
 # set(CMAKE_CXX_COMPILER "g++")
 
+find_package(BLAS)
+# FindBLAS()
 enable_language(Fortran)
 
 add_library(nlminb SHARED #STATIC
@@ -17,6 +19,6 @@ target_include_directories(nlminb
         ${PROJECT_SOURCE_DIR}/include
 )
 
-target_link_libraries (nlminb ${PROJECT_SOURCE_DIR}/lib/BLAS-3.8.0/blas_LINUX.a)
+target_link_libraries (nlminb ${BLAS_LIBRARIES})
 
 install(TARGETS nlminb DESTINATION lib)
