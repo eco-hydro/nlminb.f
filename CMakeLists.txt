@@ -6,7 +6,7 @@ project(nlminb VERSION 0.1.0)
 
 enable_language(Fortran)
 
-add_library(nlminb STATIC
+add_library(nlminb SHARED #STATIC
     src/port2.c
     src/portsrc.f
     src/d1mach.f
