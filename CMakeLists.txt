@@ -2,12 +2,13 @@ cmake_minimum_required(VERSION 3.2)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
 project(nlminb VERSION 0.1.0)
 
+# for windows
+# cmake.exe -G "MinGW Makefiles" ..
+
 # set(CMAKE_C_COMPILER "gcc")
 # set(CMAKE_CXX_COMPILER "g++")
-
 find_package(BLAS)
-# FindBLAS()
-enable_language(Fortran)
+enable_language(C Fortran)
 
 add_library(nlminb SHARED #STATIC
     src/port2.c
