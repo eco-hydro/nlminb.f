@@ -1,3 +1,8 @@
+C     Dummy for R
+      LOGICAL FUNCTION STOPX()
+      STOPX = .FALSE.
+      END
+      
 C     Minimally modernized in 2018-09, so is fixed-form F90, not F77
 
       SUBROUTINE  DRN2G(D, DR, IV, LIV, LV, N, ND, N1, N2, P, R,
@@ -562,7 +567,7 @@ C+++++++++++++++++++++++++++  DECLARATIONS  ++++++++++++++++++++++++++++
 C
 C  ***  LOCAL VARIABLES  ***
 C
-      INTEGER DG1, DUMMY, I, IPI, IPIV2, IPN, J, K, L, LSTGST, NN1O2,
+      INTEGER DG1,  I, IPI, IPIV2, IPN, J, K, L, LSTGST, NN1O2,
      1        RSTRST, STEP0, STEP1, TD1, TEMP0, TEMP1, TG1, W1, X01, X11
       DOUBLE PRECISION GI, T, XI
 C
@@ -837,7 +842,7 @@ C
 C
 C  ***  CHECK STOPX AND FUNCTION EVALUATION LIMIT  ***
 C
- 180  IF (.NOT. STOPX(DUMMY)) GO TO 200
+ 180  IF (.NOT. STOPX()) GO TO 200
          IV(1) = 11
          GO TO 210
 C
@@ -1123,7 +1128,7 @@ C+++++++++++++++++++++++++++  DECLARATIONS  ++++++++++++++++++++++++++++
 C
 C  ***  LOCAL VARIABLES  ***
 C
-      INTEGER DG1, DUMMY, I, J, K, L, LSTGST, NN1O2, RSTRST, STEP1,
+      INTEGER DG1,  I, J, K, L, LSTGST, NN1O2, RSTRST, STEP1,
      1        TEMP1, W1, X01
       DOUBLE PRECISION T
 C
@@ -1346,7 +1351,7 @@ C
 C
 C  ***  CHECK STOPX AND FUNCTION EVALUATION LIMIT  ***
 C
- 150  IF (.NOT. STOPX(DUMMY)) GO TO 170
+ 150  IF (.NOT. STOPX()) GO TO 170
          IV(1) = 11
          GO TO 180
 C
@@ -4117,7 +4122,7 @@ C
 C  ***  LOCAL VARIABLES  ***
 C
       LOGICAL HAVQTR, HAVRM
-      INTEGER DUMMY, DIG1, G01, H1, HC1, I, I1, IPI, IPIV0, IPIV1,
+      INTEGER  DIG1, G01, H1, HC1, I, I1, IPI, IPIV0, IPIV1,
      1        IPIV2, IPN, J, K, L, LMAT1, LSTGST, P1, P1LEN, PP1, PP1O2,
      2        QTR1, RMAT1, RSTRST, STEP1, STPMOD, S1, TD1, TEMP1, TEMP2,
      3        TG1, W1, WLM1, X01
@@ -4446,7 +4451,7 @@ C
 C
 C  ***  CHECK STOPX AND FUNCTION EVALUATION LIMIT  ***
 C
- 230  IF (.NOT. STOPX(DUMMY)) GO TO 250
+ 230  IF (.NOT. STOPX()) GO TO 250
          IV(1) = 11
          GO TO 260
 C
@@ -6083,7 +6088,7 @@ C+++++++++++++++++++++++++++  DECLARATIONS  ++++++++++++++++++++++++++++
 C
 C  ***  LOCAL VARIABLES  ***
 C
-      INTEGER DG1, DUMMY, G01, I, K, L, LSTGST, NWTST1, RSTRST, STEP1,
+      INTEGER DG1,  G01, I, K, L, LSTGST, NWTST1, RSTRST, STEP1,
      1        TEMP1, W, X01, Z
       DOUBLE PRECISION T
 C
@@ -6283,7 +6288,7 @@ C
 C
 C  ***  CHECK STOPX AND FUNCTION EVALUATION LIMIT  ***
 C
- 110  IF (.NOT. STOPX(DUMMY)) GO TO 130
+ 110  IF (.NOT. STOPX()) GO TO 130
          IV(1) = 11
          GO TO 140
 C
@@ -7411,7 +7416,7 @@ C+++++++++++++++++++++++++++  DECLARATIONS  ++++++++++++++++++++++++++++
 C
 C  ***  LOCAL VARIABLES  ***
 C
-      INTEGER DUMMY, DIG1, G01, H1, HC1, I, IPIV1, J, K, L, LMAT1,
+      INTEGER  DIG1, G01, H1, HC1, I, IPIV1, J, K, L, LMAT1,
      1        LSTGST, PP1O2, QTR1, RMAT1, RSTRST, STEP1, STPMOD, S1,
      2        TEMP1, TEMP2, W1, X01
       DOUBLE PRECISION E, STTSST, T, T1
@@ -7669,7 +7674,7 @@ C
 C
 C  ***  CHECK STOPX AND FUNCTION EVALUATION LIMIT  ***
 C
- 160  IF (.NOT. STOPX(DUMMY)) GO TO 180
+ 160  IF (.NOT. STOPX()) GO TO 180
          IV(1) = 11
          GO TO 190
 C
@@ -9229,7 +9234,7 @@ C+++++++++++++++++++++++++++  DECLARATIONS  ++++++++++++++++++++++++++++
 C
 C  ***  LOCAL VARIABLES  ***
 C
-      INTEGER DG1, DSTEP1, DUMMY, G01, I, I1, IPI, IPN, J, K, L, LSTGST,
+      INTEGER DG1, DSTEP1,  G01, I, I1, IPI, IPN, J, K, L, LSTGST,
      1        N1, NP1, NWTST1, RSTRST, STEP1, TEMP0, TEMP1, TD1, TG1,
      2        W1, X01, Z
       DOUBLE PRECISION GI, T, XI
@@ -9475,7 +9480,7 @@ C
 C
 C  ***  CHECK STOPX AND FUNCTION EVALUATION LIMIT  ***
 C
- 180  IF (.NOT. STOPX(DUMMY)) GO TO 200
+ 180  IF (.NOT. STOPX()) GO TO 200
          IV(1) = 11
          GO TO 210
 C

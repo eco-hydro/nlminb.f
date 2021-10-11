@@ -4,30 +4,32 @@ CC = gcc
 FC = gfortran
 
 # copied from Rcpp
-CCFLAGS = -fPIC -DNDEBUG  -I'include' -O2 -Wall  -std=gnu99 -mfpmath=sse -msse2 -mstackrealign
-FCFLAGS = -fPIC -fno-optimize-sibling-calls -O2  -mfpmath=sse -msse2 -mstackrealign
+# CFLAGS = -g -fPIC -DNDEBUG  -I'include' -O2 -Wall  -std=gnu99 -mfpmath=sse -msse2 -mstackrealign
+# FFLAGS = -g -fPIC -fno-optimize-sibling-calls -O2  -mfpmath=sse -msse2 -mstackrealign
+# target=libnlminb.so
 
-OBJS := src/portsrc.o src/d1mach.o
+OBJS := src/portsrc.o src/d1mach.o src/dv7ipr.o #src/drmnfb.o #
 SRCS := $(patsubst %o, %f, $(OBJS)) 
 
-target=nlminb.so
 
+# openblas=lib/BLAS-3.8.0/blas_LINUX.a
+# openblas=/mnt/d/WSL/Ubuntu-20.04/rootfs/home/kong/.julia/artifacts/4851a61c86b2d386d66f06445feac7e9cf8ce7ea/lib
+# /libopenblas.so
 # -lblas
 # -Llib/x64 -lopenblas64_ -L"C:/Program Files/julia/Julia 1.5.1/bin"
 # echo $(shell uname)
 # lib/libblas_linux.a
-${target}.dll:$(OBJS) src/port.o 
-	gfortran -shared -s -static-libgcc -o ${target} $^ lib/BLAS-3.8.0/blas_LINUX.a
-
+${target}:$(OBJS) src/port.o 
+	gfortran -shared -static-libgcc -o ${target} $^ -lopenblas
+	
 src/port.o:src/port2.c
-	gcc $(CCFLAGS) -c $^ -o $@
+	gcc $(CFLAGS) -c $^ -o $@
 
 $(OBJS): %.o:%.f
-	$(FC) $(FCFLAGS) -c $^ -o $@ 
+	$(FC) $(FFLAGS) -c $^ -o $@ 
 
 # -c $< 
-# echo "$(FC) $(FCFLAGS) -c $^ #-o $@ "
-
+# echo "$(FC) $(FFLAGS) -c $^ #-o $@ "
 clean:
 	@rm -f *.mod *.o *.dll *.so *.exe
 	@rm -f  src/*.o

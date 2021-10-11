@@ -5,3 +5,8 @@
 
 lib/*BLAS*
 build
+
+*/temp/
+.vscode/
+*.jl
+*.sh
